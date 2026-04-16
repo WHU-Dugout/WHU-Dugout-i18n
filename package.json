@@ -1,0 +1,22 @@
+{
+  "name": "@dugout/i18n",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "src/index.tsx",
+  "types": "src/index.tsx",
+  "exports": {
+    ".": "./src/index.tsx"
+  },
+  "scripts": {
+    "scan:missing": "node scripts/check-missing-keys.cjs",
+    "scan:unused": "node scripts/check-unused-keys.cjs",
+    "scan:all": "pnpm scan:missing && pnpm scan:unused"
+  },
+  "dependencies": {
+    "react": "19.2.0"
+  },
+  "peerDependencies": {
+    "react": "19.2.0"
+  }
+}
