@@ -1,14 +1,14 @@
 export type LocaleCode = "zh_Hans" | "en";
 
 export interface LocaleMetadata {
-  code: LocaleCode;
-  name: string;
+  readonly code: LocaleCode;
+  readonly name: string;
 }
 
-export const supportedLocales: LocaleMetadata[] = [
-  { code: "zh_Hans", name: "简体中文" },
-  { code: "en", name: "English" }
-];
+export const supportedLocales: ReadonlyArray<LocaleMetadata> = Object.freeze([
+  Object.freeze({ code: "zh_Hans", name: "简体中文" }),
+  Object.freeze({ code: "en", name: "English" })
+]);
 
 export const defaultLocale: LocaleCode = "zh_Hans";
 
