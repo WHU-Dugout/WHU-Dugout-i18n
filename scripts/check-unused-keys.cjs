@@ -20,13 +20,11 @@ function collectUsedKeys() {
   const files = [];
   walk(path.join(appRoot, "src"), files);
   const keys = new Set();
-  const tExpr = /\bt\(\s*["'`]([^"'`]+)["'`]/g;
-  const staticExpr = /getStaticTranslation\(\s*["'`][^"'`]+["'`]\s*,\s*["'`]([^"'`]+)["'`]/g;
+  const dottedKeyExpr = /["'`]([a-z][a-zA-Z0-9]*(?:\.[a-zA-Z0-9]+)+)["'`]/g;
 
   for (const file of files) {
     const text = fs.readFileSync(file, "utf8");
-    for (const m of text.matchAll(tExpr)) keys.add(m[1]);
-    for (const m of text.matchAll(staticExpr)) keys.add(m[1]);
+    for (const m of text.matchAll(dottedKeyExpr)) keys.add(m[1]);
   }
 
   return keys;
