@@ -1,8 +1,9 @@
 import React, { createContext, useContext, useEffect, useMemo, useState } from "react";
 import en from "../en.json";
 import zhHans from "../zh_Hans.json";
+import { defaultLocale, supportedLocales, type LocaleCode } from "./locales";
 
-type Locale = "zh_Hans" | "en";
+type Locale = LocaleCode;
 type Dictionary = Record<string, string>;
 type Variables = Record<string, string | number>;
 
@@ -13,12 +14,7 @@ const resources: Record<Locale, Dictionary> = {
   en: en as Dictionary
 };
 
-export const supportedLocales = [
-  { code: "zh_Hans", name: "简体中文" },
-  { code: "en", name: "English" }
-];
-
-export const defaultLocale: Locale = "zh_Hans";
+export { supportedLocales, defaultLocale };
 
 type I18nContextType = {
   locale: Locale;

@@ -6,7 +6,8 @@
   "main": "src/index.tsx",
   "types": "src/index.tsx",
   "exports": {
-    ".": "./src/index.tsx"
+    ".": "./src/index.tsx",
+    "./locales": "./src/locales.ts"
   },
   "scripts": {
     "scan:missing": "node scripts/check-missing-keys.cjs",
